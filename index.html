@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniduna Diák Büfé</title>
+    <!-- @TODO: CSS  -->
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { line-height: 1.6; color: #333; }
+        header { background: #1a365d; color: white; padding: 1rem; text-align: center; position: sticky; top: 0; z-index: 100; }
+        nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
+        section { padding: 4rem 2rem; min-height: 50vh; border-bottom: 1px solid #eee; }
+        #home { background: #f4f4f4; text-align: center; }
+        footer { background: #333; color: white; text-align: center; padding: 2rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">UNIDUNA <span>Büfé</span></div>
+        <nav>
+            <a href="#home">Kezdőlap</a>
+            <a href="#menu">Étlap</a>
+            <a href="#gallery">Galéria</a>
+            <a href="#contact">Kapcsolat</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Kezdőlap / Hero szekció -->
+        <section id="home">
+            <h1>Üdvözlünk az Uniduna Diák Büfében!</h1>
+            <p>Friss kávé, gyors szendvicsek és a legjobb falatok két előadás között.</p>
+        </section>
+
+        <!-- Interaktív digitális étlap helye -->
+        <section id="menu">
+            <h2>Étlapunk</h2>
+            <div id="menu-container">
+                <!-- Ide kerül majd a JS által generált vagy HTML-ben megírt menü -->
+                <p>A kategóriák (Italok, Szendvicsek, Meleg ételek) JS-el lesznek szűrhetők.</p>
+            </div>
+        </section>
+
+        <!-- JS Képgaléria helye -->
+        <section id="gallery">
+            <h2>Galéria</h2>
+            <div id="gallery-container">
+                <!-- Ide jön a JavaScript alapú képnézegető (slider/lightbox) -->
+                <p>Helyszíni fotók helye.</p>
+            </div>
+        </section>
+
+        <!-- Nyitvatartás és Kapcsolat -->
+        <section id="contact">
+            <h2>Kapcsolat és Nyitvatartás</h2>
+            <div>
+                <p><strong>Nyitvatartás:</strong> H-P: 07:30 - 16:00</p>
+                <p><strong>Helyszín:</strong> Dunaújvárosi Egyetem, Főépület A-szárny</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Uniduna Diák Büfé - Készítette: </p>
+    </footer>
+
+    <!-- @TODO: JS -->
+    <script>
+        console.log("Uniduna Büfé frontend betöltve.");
+    </script>
+</body>
+</html>
