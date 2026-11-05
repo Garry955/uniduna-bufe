@@ -4,71 +4,290 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uniduna Diák Büfé</title>
-    <!-- @TODO: CSS  -->
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-        body { line-height: 1.6; color: #333; }
-        header { background: #1a365d; color: white; padding: 1rem; text-align: center; position: sticky; top: 0; z-index: 100; }
-        nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
-        section { padding: 4rem 2rem; min-height: 50vh; border-bottom: 1px solid #eee; }
-        #home { background: #f4f4f4; text-align: center; }
-        footer { background: #333; color: white; text-align: center; padding: 2rem; }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Ikonok -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind Dark Mode Konfiguráció -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="bg-[#F8F9FA] text-[#2D3748] dark:bg-[#0B3B60] dark:text-gray-100 transition-colors duration-300">
 
-    <header>
-        <div class="logo">UNIDUNA <span>Büfé</span></div>
-        <nav>
-            <a href="#home">Kezdőlap</a>
-            <a href="#menu">Étlap</a>
-            <a href="#gallery">Galéria</a>
-            <a href="#contact">Kapcsolat</a>
-        </nav>
+    <!-- Header -->
+    <header class="sticky top-0 bg-white dark:bg-[#072640] shadow-md z-40 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logó -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <!-- Logo icon -->
+                     <a href="#" class="w-52 h-10 flex items-center justify-center text-white font-bold text-xl">
+                        <img src="assets/images/logo/UDB_Logo.png" alt="LOGO">
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 relative mr-12">
+                    <a href="#hero" class="text-gray-700 hover:text-[#0B3B60] font-semibold">Főoldal</a>
+                    <a href="#menu" class="text-gray-700 hover:text-[#0B3B60] font-semibold">Étlap & Itallap</a>
+                    <a href="#contact" class="text-gray-700 hover:text-[#0B3B60] font-semibold">Kapcsolat</a>
+                    <a href="#about" class="text-gray-700 hover:text-[#0B3B60] font-semibold">Rólunk</a>
+                    <!-- Dark Mode  -->
+                    <button id="theme-toggle" class="absolute -top-1 -right-10 dark:text-[#E6C387] hover:text-[#0B3B60] transition-colors text-2xl focus:outline-none">
+                        <i id="theme-icon" class="fa-solid fa-moon"></i>
+                    </button>
+                </nav>
+                <!-- Mobil Menu Hamburger -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-[#0B3B60] focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobil Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#hero" class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#0B3B60]">Főoldal</a>
+                <a href="#menu" class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#0B3B60]">Étlap & Itallap</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#0B3B60]">Kapcsolat</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#0B3B60]">Rólunk</a>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <!-- Kezdőlap / Hero szekció -->
-        <section id="home">
-            <h1>Üdvözlünk az Uniduna Diák Büfében!</h1>
-            <p>Friss kávé, gyors szendvicsek és a legjobb falatok két előadás között.</p>
-        </section>
+    <!-- Hero Slider -->
+    <section id="hero" class="relative h-[60vh] md:h-[70vh] bg-black overflow-hidden">
+        <!-- Slide 1 -->
+        <div class="slide active absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover opacity-60" alt="Büfé hangulat 1">
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide hidden-slide absolute inset-0">
+            <img src="assets/images/gallery/hero2.jpg" class="w-full h-full object-cover opacity-60" alt="Büfé hangulat 2">
+        </div>
+        <!-- Slide 3 -->
+        <div class="slide hidden-slide absolute inset-0">
+            <img src="assets/images/gallery/hero4.jpg" class="w-full h-full object-cover opacity-60" alt="Büfé hangulat 4">
+        </div>
 
-        <!-- Interaktív digitális étlap helye -->
-        <section id="menu">
-            <h2>Étlapunk</h2>
-            <div id="menu-container">
-                <!-- Ide kerül majd a JS által generált vagy HTML-ben megírt menü -->
-                <p>A kategóriák (Italok, Szendvicsek, Meleg ételek) JS-el lesznek szűrhetők.</p>
+        <!-- Hero content -->
+        <div class="absolute inset-0 z-20 flex flex-col justify-center items-center text-center px-4">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl text-[#E6C387] font-bold mb-4 drop-shadow-lg max-w-4xl">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </h1>
+            <p class="text-xl md:text-3xl text-[#E6C387] mb-8 drop-shadow-md max-w-3xl serif-font">
+                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+
+        <!-- Slider arrows -->
+        <button onclick="prevSlide()" class="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 text-white hover:text-[#E6C387] text-4xl">&lsaquo;</button>
+        <button onclick="nextSlide()" class="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 text-white hover:text-[#E6C387] text-4xl">&rsaquo;</button>
+
+        <!-- Slider buttons -->
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex space-x-2">
+            <div class="dot w-3 h-3 rounded-full bg-[#E6C387] cursor-pointer" onclick="goToSlide(0)"></div>
+            <div class="dot w-3 h-3 rounded-full bg-white opacity-50 cursor-pointer" onclick="goToSlide(1)"></div>
+            <div class="dot w-3 h-3 rounded-full bg-white opacity-50 cursor-pointer" onclick="goToSlide(2)"></div>
+        </div>
+    </section>
+
+    <!-- Menu section -->
+    <section id="menu" class="wood-background py-16 md:py-24 ">
+        <div class="max-w-7xl mx-auto px-4 relative">
+            <h2 class="text-3xl md:text-5xl text-center text-[#fff] font-bold mb-12">Kínálatunk - Étlap & Itallap</h2>
+            
+            <div class="relative group">
+                <!-- Bal nyíl -->
+                <button onclick="scrollMenu(-300)" class="absolute left-0 top-1/2 transform -translate-y-1/2 -ml-4 md:-ml-8 z-10 bg-white rounded-full p-2 shadow-lg text-[#0B3B60] hidden md:block hover:bg-gray-100">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+
+                <!-- Gördíthető konténer -->
+                <div id="menu-container" class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory gap-6 pb-8 pt-4 px-2 scroll-smooth">
+                    
+                    <!-- prod 1 -->
+                    <div class="flex-none w-72 md:w-80 bg-white dark:bg-[#124b7a] rounded-xl shadow-lg overflow-hidden snap-start cursor-pointer transform transition hover:scale-105" 
+                        onclick="openModal('assets/images/menu/hamburger.jpg', 'Hamburger')">
+                        <img src="assets/images/menu/hamburger.jpg" alt="Hamburger" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-black mb-2">Hamburger</h3>
+                            <p class="text-sm text-gray-600 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                            <p class="font-bold text-[#0B3B60] text-lg">2 490 Ft</p>
+                        </div>
+                    </div>
+
+                    <!-- prod 2 -->
+                    <div class="flex-none w-72 md:w-80 bg-white dark:bg-[#124b7a] rounded-xl shadow-lg overflow-hidden snap-start cursor-pointer transform transition hover:scale-105"
+                        onclick="openModal('assets/images/menu/fries.jpg', 'Sültkrumpli')">
+                        <img src="assets/images/menu/fries.jpg" alt="Sültkrumpli" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-black mb-2">Sültkrumpli</h3>
+                            <p class="text-sm text-gray-600 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                            <p class="font-bold text-[#0B3B60] text-lg">1 290 Ft</p>
+                        </div>
+                    </div>
+
+                    <!-- prod 3 -->
+                    <div class="flex-none w-72 md:w-80 bg-white dark:bg-[#124b7a] rounded-xl shadow-lg overflow-hidden snap-start cursor-pointer transform transition hover:scale-105"
+                        onclick="openModal('assets/images/menu/pizza.jpg', 'Pizza')">
+                        <img src="assets/images/menu/pizza.jpg" alt="Pizza" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-black mb-2">Pizza</h3>
+                            <p class="text-sm text-gray-600 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                            <p class="font-bold text-[#0B3B60] text-lg">1 890 Ft</p>
+                        </div>
+                    </div>
+
+                    <!-- prod 4 -->
+                    <div class="flex-none w-72 md:w-80 bg-white dark:bg-[#124b7a] rounded-xl shadow-lg overflow-hidden snap-start cursor-pointer transform transition hover:scale-105"
+                        onclick="openModal('assets/images/menu/sanwich.jpg', 'Szendvics menü')">
+                        <img src="assets/images/menu/sanwich.jpg" alt="Sandwich menu" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-black mb-2">Szendvics menü</h3>
+                            <p class="text-sm text-gray-600 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                            <p class="font-bold text-[#0B3B60] text-lg">2 890 Ft</p>
+                        </div>
+                    </div>
+
+                    <!-- prod 5 (drink) -->
+                    <div class="flex-none w-72 md:w-80 bg-white dark:bg-[#124b7a] rounded-xl shadow-lg overflow-hidden snap-start cursor-pointer transform transition hover:scale-105"
+                        onclick="openModal('assets/images/menu/lemonade.jpg', 'Limonádé')">
+                        <img src="assets/images/menu/lemonade.jpg" alt="Lemonade" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-black mb-2">Limonádé</h3>
+                            <p class="text-sm text-gray-600 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="font-bold text-[#0B3B60] text-lg">1 590 Ft</p>
+                        </div>
+                    </div>
+
+                    <!-- prod 6 (drink) -->
+                    <div class="flex-none w-72 md:w-80 bg-white dark:bg-[#124b7a] rounded-xl shadow-lg overflow-hidden snap-start cursor-pointer transform transition hover:scale-105"
+                        onclick="openModal('assets/images/menu/energy.jpg', 'Red Bull Energiaital')">
+                        <img src="assets/images/menu/energy.jpg" alt="Red Bull" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-black mb-2">Red Bull Energiaital</h3>
+                            <p class="text-sm text-gray-600 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="font-bold text-[#0B3B60] text-lg">590 Ft</p>
+                        </div>
+                    </div>
+
+                    <!-- prod 7 (drink) -->
+                    <div class="flex-none w-72 md:w-80 bg-white dark:bg-[#124b7a] rounded-xl shadow-lg overflow-hidden snap-start cursor-pointer transform transition hover:scale-105"
+                        onclick="openModal('assets/images/menu/coffee.jpg', 'Kézműves Kávé')">
+                        <img src="assets/images/menu/coffee.jpg" alt="Kávé" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-black mb-2">Kávé</h3>
+                            <p class="text-sm text-gray-600 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="font-bold text-[#0B3B60] text-lg">890 Ft</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jobb nyíl -->
+                <button onclick="scrollMenu(300)" class="absolute right-0 top-1/2 transform -translate-y-1/2 -mr-4 md:-mr-8 z-10 bg-white rounded-full p-2 shadow-lg text-[#0B3B60] hidden md:block hover:bg-gray-100">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- JS Képgaléria helye -->
-        <section id="gallery">
-            <h2>Galéria</h2>
-            <div id="gallery-container">
-                <!-- Ide jön a JavaScript alapú képnézegető (slider/lightbox) -->
-                <p>Helyszíni fotók helye.</p>
+    <!-- Modal -->
+    <div id="itemModal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 transition-opacity">
+        <div class="bg-white rounded-xl max-w-lg w-full overflow-hidden relative shadow-2xl transform transition-transform scale-95" id="modalContent">
+            
+            <button onclick="closeModal()" class="absolute top-3 right-3 w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-gray-600 hover:text-black hover:bg-gray-100 z-10 text-2xl font-bold">&times;</button>
+            
+            <img id="modalImage" src="" alt="Kiemelt termék" class="w-full h-64 md:h-80 object-cover">
+            
+            <div class="p-8 text-center bg-[#F8F9FA]">
+                <h3 id="modalTitle" class="text-3xl font-bold text-[#0B3B60] mb-2"></h3>
+                <div class="w-16 h-1 bg-[#E6C387] mx-auto rounded"></div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- Nyitvatartás és Kapcsolat -->
-        <section id="contact">
-            <h2>Kapcsolat és Nyitvatartás</h2>
-            <div>
-                <p><strong>Nyitvatartás:</strong> H-P: 07:30 - 16:00</p>
-                <p><strong>Helyszín:</strong> Dunaújvárosi Egyetem, Főépület A-szárny</p>
+    <!-- Contact -->
+    <section id="contact" class="py-16 md:py-24 bg-[#Eef1f5] dark:bg-[#124b7a]">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl text-center text-[#0B3B60] font-bold mb-12">Kapcsolat és Nyitvatartás</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Details -->
+                <div class="md:col-span-1 bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-[#0B3B60] mb-6">Kapcsolati adatok</h3>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="mr-3 text-[#0B3B60]">📍</span>
+                            <span>Uniduna büfé<br></span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-3 text-[#0B3B60]">📞</span>
+                            <span>09 876 543 21</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-3 text-[#0B3B60]">✉️</span>
+                            <span>bufe@uni-duna.hu</span>
+                        </li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-bold text-[#0B3B60] mt-8 mb-4">Nyitvatartási idő</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>H-P: 6:00 - 19:00</li>
+                        <li>Sz-V: 7:00 - 13:00</li>
+                    </ul>
+                </div>
+                
+                <!-- Google Maps local -->
+                <div class="md:col-span-2 rounded-xl shadow-lg overflow-hidden relative min-h-[300px] h-full">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Dunaújvárosi%20Egyetem&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; position: absolute; top: 0; left: 0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 Uniduna Diák Büfé - Készítette: </p>
+    <!-- Footer -->
+    <footer id="about" class="bg-[#0B3B60] text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center gap-2 mb-6">
+                <!-- Logo icon -->
+                    <a href="#" class="w-52 h-10 flex items-center justify-center text-white font-bold text-xl">
+                    <img src="assets/images/logo/UDB_Logo.png" alt="LOGO">
+                </a>
+            </div>
+            
+            <p class="text-[#E6C387] text-lg mb-8 italic serif-font">Étel, ital, jókedv a Dunaújvárosi egyetemen</p>
+            
+            <nav class="flex flex-wrap justify-center gap-6 mb-12 text-sm uppercase tracking-wider text-gray-300">
+                <a href="#hero" class="hover:text-white transition">Főoldal</a>
+                <a href="#menu" class="hover:text-white transition">Étlap</a>
+                <a href="#menu" class="hover:text-white transition">Itallap</a>
+                <a href="#contact" class="hover:text-white transition">Kapcsolat</a>
+                <a href="#about" class="hover:text-white transition">Rólunk</a>
+            </nav>
+            
+            <div class="border-t border-[#1a4a75] pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <p>&copy; 2026 Uniduna-büfé. Minden jog fenntartva.</p>
+                <p class="mt-4 md:mt-0">Készítette: Uniduna Csapat (ZL, MG, VL)</p>
+            </div>
+        </div>
     </footer>
-
-    <!-- @TODO: JS -->
-    <script>
-        console.log("Uniduna Büfé frontend betöltve.");
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>

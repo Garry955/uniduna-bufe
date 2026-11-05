@@ -1,0 +1,36 @@
+body { 
+    font-family: 'Montserrat', sans-serif; 
+}
+
+h1, h2, h3, .serif-font { 
+    font-family: 'Playfair Display', serif; 
+}
+
+.slide { 
+    transition: opacity 0.5s ease-in-out; 
+}
+.slide.active { 
+    opacity: 1; 
+    z-index: 10; 
+}
+.slide.hidden-slide { 
+    opacity: 0; 
+    z-index: 0; 
+}
+
+.hide-scrollbar::-webkit-scrollbar { 
+    display: none; 
+}
+
+.hide-scrollbar {
+     -ms-overflow-style: none; 
+     scrollbar-width: none; 
+}
+
+.wood-background {
+    background-image: url('../assets/images/bg/bg1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white; 
+}
