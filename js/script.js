@@ -1,8 +1,24 @@
 // --- 1. Mobil menu handler ---
 const btn = document.getElementById('mobile-menu-btn');
 const menu = document.getElementById('mobile-menu');
-btn.addEventListener('click', () => {
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+function toggleMobileMenu() {
     menu.classList.toggle('hidden');
+    menu.classList.toggle('flex');
+    document.body.style.overflow = menu.classList.contains('hidden') ? 'auto' : 'hidden';
+}
+
+// Hamburger button event
+btn.addEventListener('click', toggleMobileMenu);
+
+// Menu click events
+mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+    });
 });
 
 // --- 2. Hero Slider ---

@@ -30,36 +30,38 @@
                     </a>
                 </div>
                 
-                <!-- Desktop Menu -->
-                <nav class="hidden md:flex space-x-8 relative mr-12">
-                    <a href="#hero" class="text-gray-700 hover:text-[#0B3B60] font-semibold">Főoldal</a>
-                    <a href="#menu" class="text-gray-700 hover:text-[#0B3B60] font-semibold">Étlap & Itallap</a>
-                    <a href="#contact" class="text-gray-700 hover:text-[#0B3B60] font-semibold">Kapcsolat</a>
-                    <a href="#about" class="text-gray-700 hover:text-[#0B3B60] font-semibold">Rólunk</a>
-                    <!-- Dark Mode  -->
-                    <button id="theme-toggle" class="absolute -top-1 -right-10 dark:text-[#E6C387] hover:text-[#0B3B60] transition-colors text-2xl focus:outline-none">
+                <div class="flex items-center gap-4">
+                    <!-- Desktop menu -->
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="#hero" class="text-gray-700 dark:text-white hover:text-[#0B3B60] dark:hover:text-[#E6C387] font-semibold transition-colors">Főoldal</a>
+                        <a href="#menu" class="text-gray-700 dark:text-white hover:text-[#0B3B60] dark:hover:text-[#E6C387] font-semibold transition-colors">Étlap & Itallap</a>
+                        <a href="#contact" class="text-gray-700 dark:text-white hover:text-[#0B3B60] dark:hover:text-[#E6C387] font-semibold transition-colors">Kapcsolat</a>
+                        <a href="#about" class="text-gray-700 dark:text-white hover:text-[#0B3B60] dark:hover:text-[#E6C387] font-semibold transition-colors">Rólunk</a>
+                    </nav>
+
+                    <!-- Dark Mode Button -->
+                    <button id="theme-toggle" class="text-gray-600 dark:text-[#E6C387] hover:text-[#0B3B60] transition-colors text-2xl focus:outline-none z-50">
                         <i id="theme-icon" class="fa-solid fa-moon"></i>
                     </button>
-                </nav>
-                <!-- Mobil Menu Hamburger -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-[#0B3B60] focus:outline-none">
-                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                    </button>
+
+                    <!-- Mobil Hamburger Button -->
+                    <div class="md:hidden flex items-center z-50">
+                        <button id="mobile-menu-btn" class="text-gray-700 dark:text-gray-200 hover:text-[#0B3B60] focus:outline-none">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
         
         <!-- Mobil Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
-                <a href="#hero" class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#0B3B60]">Főoldal</a>
-                <a href="#menu" class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#0B3B60]">Étlap & Itallap</a>
-                <a href="#contact" class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#0B3B60]">Kapcsolat</a>
-                <a href="#about" class="block px-3 py-2 text-gray-700 font-semibold hover:text-[#0B3B60]">Rólunk</a>
-            </div>
+        <div id="mobile-menu" class="hidden fixed inset-0 top-20 z-40 bg-white dark:bg-[#0B3B60] flex-col items-center justify-center space-y-8 text-2xl transition-colors duration-300">
+            <a href="#hero" class="mobile-link text-gray-800 dark:text-white font-bold hover:text-[#0B3B60] dark:hover:text-[#E6C387]">Főoldal</a>
+            <a href="#menu" class="mobile-link text-gray-800 dark:text-white font-bold hover:text-[#0B3B60] dark:hover:text-[#E6C387]">Étlap & Itallap</a>
+            <a href="#contact" class="mobile-link text-gray-800 dark:text-white font-bold hover:text-[#0B3B60] dark:hover:text-[#E6C387]">Kapcsolat</a>
+            <a href="#about" class="mobile-link text-gray-800 dark:text-white font-bold hover:text-[#0B3B60] dark:hover:text-[#E6C387]">Rólunk</a>
         </div>
     </header>
 
@@ -81,10 +83,10 @@
         <!-- Hero content -->
         <div class="absolute inset-0 z-20 flex flex-col justify-center items-center text-center px-4">
             <h1 class="text-3xl md:text-5xl lg:text-6xl text-[#E6C387] font-bold mb-4 drop-shadow-lg max-w-4xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                A legjobb falatok és legfrissebb kávék két előadás között!
             </h1>
             <p class="text-xl md:text-3xl text-[#E6C387] mb-8 drop-shadow-md max-w-3xl serif-font">
-                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Legyen szó gyors reggeliről, kiadós ebédről vagy egy vizsga előtti energialöketről, nálunk mindent megtalálsz.
             </p>
         </div>
 
@@ -103,7 +105,7 @@
     <!-- Menu section -->
     <section id="menu" class="wood-background py-16 md:py-24 ">
         <div class="max-w-7xl mx-auto px-4 relative">
-            <h2 class="text-3xl md:text-5xl text-center text-[#fff] font-bold mb-12">Kínálatunk - Étlap & Itallap</h2>
+            <h2 class="text-3xl md:text-5xl text-center text-[#0B3B60] font-bold mb-12 dark:text-white">Kínálatunk - Étlap & Itallap</h2>
             
             <div class="relative group">
                 <!-- Bal nyíl -->
@@ -116,12 +118,12 @@
                     
                     <!-- prod 1 -->
                     <div class="flex-none w-72 md:w-80 bg-white dark:bg-[#124b7a] rounded-xl shadow-lg overflow-hidden snap-start cursor-pointer transform transition hover:scale-105" 
-                        onclick="openModal('assets/images/menu/hamburger.jpg', 'Hamburger')">
+                        onclick="openModal('assets/images/menu/hamburger.jpg', 'Kézműves Hamburger')">
                         <img src="assets/images/menu/hamburger.jpg" alt="Hamburger" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-black mb-2">Hamburger</h3>
-                            <p class="text-sm text-gray-600 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-                            <p class="font-bold text-[#0B3B60] text-lg">2 490 Ft</p>
+                            <h3 class="text-xl font-bold text-black mb-2 dark:text-white">Kézműves Hamburger</h3>
+                            <p class="text-sm text-gray-600 mb-2 dark:text-gray-300">Szaftos marhahúspogácsa, friss zöldségek és házi szósz, ropogós buciban tálalva.</p>
+                            <p class="font-bold text-[#0B3B60] text-lg dark:text-[#E6C387]">2 490 Ft</p>
                         </div>
                     </div>
 
@@ -130,20 +132,20 @@
                         onclick="openModal('assets/images/menu/fries.jpg', 'Sültkrumpli')">
                         <img src="assets/images/menu/fries.jpg" alt="Sültkrumpli" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-black mb-2">Sültkrumpli</h3>
-                            <p class="text-sm text-gray-600 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-                            <p class="font-bold text-[#0B3B60] text-lg">1 290 Ft</p>
+                            <h3 class="text-xl font-bold text-black mb-2 dark:text-white">Sültkrumpli</h3>
+                            <p class="text-sm text-gray-600 mb-2 dark:text-gray-300">Aranybarnára sült, ropogós hasábburgonya. Tökéletes kísérője bármelyik főételünknek.</p>
+                            <p class="font-bold text-[#0B3B60] text-lg dark:text-[#E6C387]">1 290 Ft</p>
                         </div>
                     </div>
 
                     <!-- prod 3 -->
                     <div class="flex-none w-72 md:w-80 bg-white dark:bg-[#124b7a] rounded-xl shadow-lg overflow-hidden snap-start cursor-pointer transform transition hover:scale-105"
-                        onclick="openModal('assets/images/menu/pizza.jpg', 'Pizza')">
+                        onclick="openModal('assets/images/menu/pizza.jpg', 'Kemencés Pizza')">
                         <img src="assets/images/menu/pizza.jpg" alt="Pizza" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-black mb-2">Pizza</h3>
-                            <p class="text-sm text-gray-600 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-                            <p class="font-bold text-[#0B3B60] text-lg">1 890 Ft</p>
+                            <h3 class="text-xl font-bold text-black mb-2 dark:text-white">Kemencés Pizza</h3>
+                            <p class="text-sm text-gray-600 mb-2 dark:text-gray-300">Helyben sütött, vékony tésztás pizza gazdag feltéttel és olvadó sajttal. Igazi klasszikus.</p>
+                            <p class="font-bold text-[#0B3B60] text-lg dark:text-[#E6C387]">1 890 Ft</p>
                         </div>
                     </div>
 
@@ -152,20 +154,20 @@
                         onclick="openModal('assets/images/menu/sanwich.jpg', 'Szendvics menü')">
                         <img src="assets/images/menu/sanwich.jpg" alt="Sandwich menu" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-black mb-2">Szendvics menü</h3>
-                            <p class="text-sm text-gray-600 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-                            <p class="font-bold text-[#0B3B60] text-lg">2 890 Ft</p>
+                            <h3 class="text-xl font-bold text-black mb-2 dark:text-white">Szendvics menü</h3>
+                            <p class="text-sm text-gray-600 mb-2 dark:text-gray-300">Kiadós, frissen készített szendvics választható feltétekkel, hogy sose indulj korgó gyomorral az órára.</p>
+                            <p class="font-bold text-[#0B3B60] text-lg dark:text-[#E6C387]">2 890 Ft</p>
                         </div>
                     </div>
 
                     <!-- prod 5 (drink) -->
                     <div class="flex-none w-72 md:w-80 bg-white dark:bg-[#124b7a] rounded-xl shadow-lg overflow-hidden snap-start cursor-pointer transform transition hover:scale-105"
-                        onclick="openModal('assets/images/menu/lemonade.jpg', 'Limonádé')">
+                        onclick="openModal('assets/images/menu/lemonade.jpg', 'Házi Limonádé')">
                         <img src="assets/images/menu/lemonade.jpg" alt="Lemonade" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-black mb-2">Limonádé</h3>
-                            <p class="text-sm text-gray-600 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p class="font-bold text-[#0B3B60] text-lg">1 590 Ft</p>
+                            <h3 class="text-xl font-bold text-black mb-2 dark:text-white">Házi Limonádé</h3>
+                            <p class="text-sm text-gray-600 mb-2 dark:text-gray-300">Jéghideg, frissítő limonádé valódi gyümölcsökkel. A legjobb választás egy hosszú napra.</p>
+                            <p class="font-bold text-[#0B3B60] text-lg dark:text-[#E6C387]">1 590 Ft</p>
                         </div>
                     </div>
 
@@ -174,9 +176,9 @@
                         onclick="openModal('assets/images/menu/energy.jpg', 'Red Bull Energiaital')">
                         <img src="assets/images/menu/energy.jpg" alt="Red Bull" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-black mb-2">Red Bull Energiaital</h3>
-                            <p class="text-sm text-gray-600 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p class="font-bold text-[#0B3B60] text-lg">590 Ft</p>
+                            <h3 class="text-xl font-bold text-black mb-2 dark:text-white">Red Bull Energiaital</h3>
+                            <p class="text-sm text-gray-600 mb-2 dark:text-gray-300">Szárnyakat ad a vizsgaidőszakban! Gyors energialöket a legnehezebb ZH-k átvészeléséhez.</p>
+                            <p class="font-bold text-[#0B3B60] text-lg dark:text-[#E6C387]">590 Ft</p>
                         </div>
                     </div>
 
@@ -185,9 +187,9 @@
                         onclick="openModal('assets/images/menu/coffee.jpg', 'Kézműves Kávé')">
                         <img src="assets/images/menu/coffee.jpg" alt="Kávé" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-black mb-2">Kávé</h3>
-                            <p class="text-sm text-gray-600 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p class="font-bold text-[#0B3B60] text-lg">890 Ft</p>
+                            <h3 class="text-xl font-bold text-black mb-2 dark:text-white">Kézműves Kávé</h3>
+                            <p class="text-sm text-gray-600 mb-2 dark:text-gray-300">Gondosan pörkölt, aromás kávé, amely garantáltan felébreszt a reggeli 8 órás előadások előtt.</p>
+                            <p class="font-bold text-[#0B3B60] text-lg dark:text-[#E6C387]">890 Ft</p>
                         </div>
                     </div>
                 </div>
@@ -218,8 +220,7 @@
     <!-- Contact -->
     <section id="contact" class="py-16 md:py-24 bg-[#Eef1f5] dark:bg-[#124b7a]">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl text-center text-[#0B3B60] font-bold mb-12">Kapcsolat és Nyitvatartás</h2>
-            
+            <h2 class="text-3xl md:text-4xl text-center text-[#0B3B60] dark:text-white font-bold mb-12">Kapcsolat és Nyitvatartás</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Details -->
                 <div class="md:col-span-1 bg-white p-8 rounded-xl shadow-lg">
